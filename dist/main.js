@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n\n\nconsole.log(\"krijg kanker als dit werkt!\");\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n\n//637d10571b414c779f872124241603 api key for weatherapi.\n//forecast.json?key=\" + apiKey +  \"&q=id:\" + cityID\nasync function fetchData() {\n\ttry {\n\t\tconst response = await fetch(\n\t\t\t\"http://api.weatherapi.com/v1/forecast.json?key=637d10571b414c779f872124241603&q=id:purmerend\"\n\t\t);\n\t\tconst data = await response.json();\n\t\tconsole.log(data);\n\t} catch (error) {\n\t\tconsole.error(\"error displaying data\", error);\n\t}\n}\n\nfetchData();\n\n\n//# sourceURL=webpack://todolist/./src/index.js?");
 
 /***/ })
 
