@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background-color: #f0f0f0;
+  background-color: #1e1d1a;
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -15,13 +15,14 @@ body {
 }
 
 .maincontent {
-  background-color: lightgreen;
+  background-color: #323f96;
   height: 95%;
   width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  border-radius: 10px;
 }
 
 .mainforecast {
@@ -29,13 +30,16 @@ body {
   grid-template-columns: 1fr, 3;
   height: 40%;
   width: 30%;
-  background-color: lightblue;
+  background-color: #4253c7;
+  border-radius: 10px;
+  color: white;
 }
 
 .threedayforecast {
   height: 35%;
   width: 50%;
-  background-color: lightpink;
+  background-color: #4253c7;
+  border-radius: 10px;
 }
 
 .inputdiv {
@@ -45,11 +49,12 @@ body {
   align-items: center;
   height: 15%;
   width: 30%;
-  background-color: lightgoldenrodyellow;
+  background-color: #4253c7;
+  border-radius: 10px;
 }
 
 #submitbutton {
-  background-color: #4caf50; /* Green */
+  background-color: #967f32; /* Green */
   border: none;
   color: white;
   padding: 15px 30px;
@@ -63,7 +68,7 @@ body {
 }
 
 #submitbutton:hover {
-  background-color: #45a049;
+  background-color: #967f32;
 }
 
 #cityID {
@@ -77,9 +82,8 @@ body {
   outline: none;
 }
 
-/* Input Focus Style */
 #cityID:focus {
-  border-color: #4caf50; /* Green */
+  border-color: #967f32;
 }
 
 .mainweatherinfo {
@@ -93,7 +97,7 @@ body {
 .otherweatherinfo {
   padding: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: 1;
 }
