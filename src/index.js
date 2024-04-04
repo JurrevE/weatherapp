@@ -52,6 +52,7 @@ function displayCurrentData() {
     weatherInfo.feelsc +
     "°C" +
     " | " +
+    "Conditions: " +
     weatherInfo.clouds +
     " | " +
     "Humidity: " +
