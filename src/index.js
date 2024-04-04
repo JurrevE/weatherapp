@@ -1,7 +1,9 @@
 import "./styles.css";
 //637d10571b414c779f872124241603 api key for weatherapi.
 
-let cityID = "Dokkum";
+let cityID;
+let inputfield = document.getElementById("cityID");
+let submitbutton = document.getElementById("submitbutton");
 
 async function fetchData() {
   try {
@@ -10,22 +12,33 @@ async function fetchData() {
         cityID
     );
     const data = await response.json();
-    console.log(data);
     currentData(data);
   } catch (error) {
     console.error("error displaying data", error);
   }
 }
 
-fetchData();
-
 function currentData(data) {
-  let weatherInfo = {};
+  let weatherInfo = {
+    tempc: data.current.temp_c,
+    tempf: data.current.temp_f,
+    feelsc: data.current.feelslike_c,
+    feelsf: data.current.feelslike_f,
+    humidity: data.current.humidity,
+    clouds: data.current.cloud,
+    uv: data.current.uv,
+    winddir: data.current.wind_dir,
+    windkph: data.current.wind_kph,
+    windmph: data.current.wind_mph,
+    sunrise: data.forecast.forecastday[0].astro.sunrise,
+    sunset: data.forecast.forecastday[0].astro.sunset,
+  };
 
-  let clouds = data.current.cloud;
-  weatherInfo.cloudy = clouds;
-
-  let feelsliketemp = data.current.feelslike_c;
-  weatherInfo.feelsliketemp = feelsliketemp;
   console.log(weatherInfo);
 }
+
+submitbutton.addEventListener("click", function () {
+  let inputfieldvalue = inputfield.value;
+  cityID = inputfieldvalue;
+  fetchData();
+});
