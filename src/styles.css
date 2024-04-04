@@ -25,6 +25,8 @@ body {
 }
 
 .mainforecast {
+  display: grid;
+  grid-template-columns: 1fr, 3;
   height: 40%;
   width: 30%;
   background-color: lightblue;
@@ -38,9 +40,68 @@ body {
 
 .inputdiv {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   height: 15%;
   width: 30%;
   background-color: lightgoldenrodyellow;
+}
+
+#submitbutton {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#submitbutton:hover {
+  background-color: #45a049;
+}
+
+#cityID {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 300px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Input Focus Style */
+#cityID:focus {
+  border-color: #4caf50; /* Green */
+}
+
+.mainweatherinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 400;
+}
+
+.otherweatherinfo {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: 1;
+}
+
+.placeinfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: x-large;
+  font-weight: 400;
 }
