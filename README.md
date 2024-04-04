@@ -1,2 +1,1 @@
-# todolist
-todolist for the odin project
+Weatherapp for the odin project
