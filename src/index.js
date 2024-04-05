@@ -2,22 +2,30 @@ import "./styles.css";
 
 let cityID;
 let weatherInfo;
-let inputfield = document.getElementById("cityID");
-let submitbutton = document.getElementById("submitbutton");
-let tempcp = document.getElementById("tempc");
-let otherinfop = document.getElementById("otherinfo");
-let placeinfop = document.getElementById("placeinfop");
+let futureWeatherInfo;
+const inputfield = document.getElementById("cityID");
+const submitbutton = document.getElementById("submitbutton");
+const tempcp = document.getElementById("tempc");
+const otherinfop = document.getElementById("otherinfo");
+const placeinfop = document.getElementById("placeinfop");
+const day1date = document.getElementById("day1date");
+const day1tempc = document.getElementById("day1temp");
+const day1condition = document.getElementById("day1conditions");
+const day2date = document.getElementById("day2date");
+const day2tempc = document.getElementById("day2temp");
+const day2condition = document.getElementById("day2conditions");
 
 async function fetchData() {
   try {
     const response = await fetch(
       "http://api.weatherapi.com/v1/forecast.json?key=637d10571b414c779f872124241603&q=id:" +
         cityID +
-        "&days=3"
+        "&days=4"
     );
     const data = await response.json();
     console.log(data);
     getCurrentData(data);
+    getFutureData(data);
   } catch (error) {
     console.error("error displaying data", error);
   }
@@ -76,8 +84,29 @@ function displayCurrentData() {
     weatherInfo.sunset;
 }
 
+function getFutureData(data) {
+  futureWeatherInfo = {
+    day1tempc: data.forecast.forecastday[1].day.avgtemp_c,
+    day1condition: data.forecast.forecastday[1].day.condition.text,
+    day1date: data.forecast.forecastday[1].date,
+    day2tempc: data.forecast.forecastday[2].day.avgtemp_c,
+    day2condition: data.forecast.forecastday[2].day.condition.text,
+    day2date: data.forecast.forecastday[2].date,
+  };
+  displayFutureData();
+}
+
+function displayFutureData() {
+  day1date.innerHTML = futureWeatherInfo.day1date;
+  day1tempc.innerHTML = futureWeatherInfo.day1tempc + "°C";
+  day1condition.innerHTML = futureWeatherInfo.day1condition;
+  day2date.innerHTML = futureWeatherInfo.day2date;
+  day2tempc.innerHTML = futureWeatherInfo.day2tempc + "°C";
+  day2condition.innerHTML = futureWeatherInfo.day2condition;
+}
 submitbutton.addEventListener("click", function () {
   let inputfieldvalue = inputfield.value;
   cityID = inputfieldvalue;
   fetchData();
+  inputfield.value = " ";
 });
